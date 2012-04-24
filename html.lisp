@@ -9,9 +9,9 @@
   `(with-html-output-to-string
      (*standard-output* nil :prologue t),@body))
 
-(hunchentoot:define-easy-handler (say-yo :uri "/yo") (name)
-                     (setf (content-type*) "text/plain")
-                     (format nil "Hey~@[ ~A~]!" name))
+;(hunchentoot:define-easy-handler (say-yo :uri "/yo") (name)
+;                     (setf (content-type*) "text/plain")
+;                     (format nil "Hey~@[ ~A~]!" name))
 
 (hunchentoot:define-easy-handler (patients :uri "/patients" :default-request-type :post )
                                  ((uid :parameter-type 'integer)
@@ -35,4 +35,4 @@
                                                 (:td "First Name:")
                                                 (:td (:input :type :text
                                                      :name "fname"
-                                                     :value)))))))))
+                                                     :value))))))))))
