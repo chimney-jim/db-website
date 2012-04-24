@@ -70,4 +70,27 @@
                                               (:tr
                                                 (:td "Email: ")
                                                 (:td (:input :type :text
-                                                             :name "email" :value))))))))))
+                                                             :name "email" :value)))
+                                              (:tr
+                                                (:td "Emergency Contact: ")
+                                                (:td (:input :type :text
+                                                             :name "emercon" :value)))
+                                              (:tr
+                                                (:td "Insurance Info: ")
+                                                (:td (:input :type :text
+                                                             :name "insurinfo" :value)))
+                                              (:tr
+                                                (:td "Insurance Contact: ")
+                                                (:td (:input :type :text
+                                                             :name "insurcon" :value)))
+                                              (:tr
+                                                (:td "Diagnosis: ")
+                                                (:td (:input :type :text
+                                                             :name "diag" :value)))
+                                              (:tr
+                                                (:td "Pain Level: ")
+                                                (:td (:input :type :text
+                                                             :name "painlvl" :value)))
+                                              (:tr
+                                                (:td :colspan 2
+                                                     (:input :type "submit"))))))))))
