@@ -1,22 +1,24 @@
 (ql:quickload '(cl-who hunchentoot parenscript sqlite))
 
 (defpackage :html
-  (:use :cl :cl-who :hunchentoot :parenscript :asdf))
+  (:use :cl :cl-who :hunchentoot :parenscript :sql-util))
 
 (in-package :html)
+
+;;(sql-util:outpatient-select-all)
 
 (defmacro with-html (&body body)
   `(with-html-output-to-string
      (*standard-output* nil :prologue t),@body))
 
-(hunchentoot:define-easy-handler (patients :uri "/patients" :default-request-type :post )
+(define-easy-handler (patients :uri "/patients" :default-request-type :post )
                                  ((uid :parameter-type 'integer)
                                     fname lname addr city state
                                     (zip :parameter-type 'integer)
                                     (dob :parameter-type 'integer)
                                     (phone :parameter-type 'integer)
                                     email 
-                                    (emrcon :parameter-type 'integer)
+                                    (emercon :parameter-type 'integer)
                                     insurinfo
                                     (insurcon :parameter-type 'integer)
                                     diag 
@@ -89,7 +91,4 @@
                                                              :name "painlvl" :value)))
                                               (:tr
                                                 (:td :colspan 2
-                                                     (:input :type "submit"))))))
-                     (sql-util:outpatient-insert (uid fname lname addr city state zip dob 
-                                                    phone email emercon insurinfo insurcon
-                                                    diag painlvl))))))
+                                                     (:input :type "submit"))))))))))

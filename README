@@ -1,1 +1,11 @@
-This will be a website that will allow one to write to a database and potentially view items in a database.
+This will be a website that will allow one to write to a database and potentially 
+view items in a database.
+
+TODO:
+
+--make asdf work properly
+--make :html see :sql-util
+--make easy-handler call sql functions from :sql-util
+--make everything run on the over port 80
+
+--SPECIAL: make ouput to same page as input
