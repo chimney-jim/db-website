@@ -6,7 +6,7 @@
            :outpatient-select-all
            :resident-select-all))
 
-(in-package :html)
+(in-package :sql-util)
 
 (defvar db (connect "mvch"))
 
