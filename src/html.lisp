@@ -1,5 +1,3 @@
-(ql:quickload '(cl-who hunchentoot parenscript sqlite))
-
 (defpackage :html
   (:use :cl :cl-who :hunchentoot :parenscript :sql-util))
 
