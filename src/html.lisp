@@ -23,6 +23,7 @@
                        (:html
                          (:head (:title "Patient Database Interaction"))
                          (:body
+                           (:h1 "Insert information to be entered into the database")
                            (:p (:form :method :post
                                       (:table :border 1 :cellpadding 2 :cellspacing 0
                                               (:tr
@@ -87,4 +88,9 @@
                                                              :name "painlvl" :value)))
                                               (:tr
                                                 (:td :colspan 2
-                                                     (:input :type "submit"))))))))))
+                                                     (:input :type "submit"
+                                                             :onclick (parenscript:ps ))))))
+                           (sql-util:outpatient-insert uid fname lname addr city state zip
+                                                           dob phone email emercon
+                                                           insurinfo insurcon diag
+                                                           painlvl)))))
