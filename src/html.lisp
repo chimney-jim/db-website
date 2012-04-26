@@ -1,9 +1,7 @@
 (defpackage :html
-  (:use :cl :cl-who :hunchentoot :parenscript :sql-util))
+  (:use :cl :cl-who :hunchentoot :parenscript :sqlite :sql-util))
 
 (in-package :html)
-
-;;(sql-util:outpatient-select-all)
 
 (defmacro with-html (&body body)
   `(with-html-output-to-string
