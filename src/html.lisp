@@ -89,11 +89,10 @@
                                               (:tr
                                                 (:td :colspan 2
                                                      (:input :type "submit" :class "btn"))))
-                                      (:p (loop for (a b c d e f g h i j k l m n o) in (sql-util:outpatient-select-all) 
-                                                do (format t "~a~|" a b c d e f g h i j k l m n o ))))))
+                                      (:p (format t "~{~a~% ~}" (sql-util:outpatient-select-all))))))
                            (sql-util:outpatient-insert uid fname lname addr city state zip dob
                                                             phone email emercon insurinfo insurcon
                                                             diag painlvl)
                            (sql-util:outpatient-delete))))
 
-;;(hunchentoot:start (make-instance 'hunchentoot:easy-acceptor :port 4242))
+(hunchentoot:start (make-instance 'hunchentoot:easy-acceptor :port 4242))
