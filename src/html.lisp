@@ -89,8 +89,8 @@
                                               (:tr
                                                 (:td :colspan 2
                                                      (:input :type "submit"
-                                                             :onclick (parenscript:ps ))))))
+                                                             :onclick )))
                            (sql-util:outpatient-insert uid fname lname addr city state zip
                                                            dob phone email emercon
                                                            insurinfo insurcon diag
-                                                           painlvl)))))
+                                                           painlvl))))))))
