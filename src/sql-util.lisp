@@ -4,7 +4,8 @@
   (:export :outpatient-insert
            :resident-insert
            :outpatient-select-all
-           :resident-select-all))
+           :resident-select-all
+           :outpatient-delete))
 
 (in-package :sql-util)
 
@@ -30,3 +31,7 @@
 (defun resident-select-all ()
   "Selects all items from resident table and puts them into a list"
   (execute-to-list db "select * from resident"))
+
+(defun outpatient-delete ()
+  "Deletes the empty entries from the outpatient table"
+  (execute-non-query db "delete from outpatient where FirstName is null"))

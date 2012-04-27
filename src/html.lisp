@@ -7,7 +7,7 @@
   `(with-html-output-to-string
      (*standard-output* nil :prologue t),@body))
 
-(define-easy-handler (patients :uri "/patients" :default-request-type :post )
+(define-easy-handler (patients :uri "/patients" :default-request-type :post)
                                  ((uid :parameter-type 'integer)
                                     fname lname addr city state
                                     (zip :parameter-type 'integer)
@@ -33,7 +33,7 @@
                                               (:tr
                                                 (:td "First Name:")
                                                 (:td (:input :type :text
-                                                             :name "fname" :value)))
+                                                             :name "fname" :value (or fname ""))))
                                               (:tr
                                                 (:td "Last Name:")
                                                 (:td (:input :type :text
@@ -88,9 +88,8 @@
                                                              :name "painlvl" :value)))
                                               (:tr
                                                 (:td :colspan 2
-                                                     (:input :type "submit"
-                                                             :onclick )))
-                           (sql-util:outpatient-insert uid fname lname addr city state zip
-                                                           dob phone email emercon
-                                                           insurinfo insurcon diag
-                                                           painlvl))))))))
+                                                     (:input :type "submit" :class "btn"))))))
+                           (sql-util:outpatient-insert uid fname lname addr city state zip dob
+                                                            phone email emercon insurinfo insurcon
+                                                            diag painlvl)
+                           (sql-util:outpatient-delete)))))
